@@ -1,0 +1,28 @@
+---
+
+# Create a new primary partition
+- parted:
+    device: "{{ name_of_disk }}"
+    number: "{{ primary_partition_number }}"
+    state: present
+# Create a ext4 file system
+- filesystem:
+    fstype: "{{ extention_type }}"
+    dev: "{{ name_of_partition }}"
+# create a directory where disk mount
+- file:
+    path: "{{ name_of_directory }}"
+    state: directory
+# mount the disk 
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote.
+  shell: sudo mount "{{ where_to_mount }}" "{{ path_to_mount }}"
+- name: Mount DVD read-only
+  mount:
+    path: "{{ path_to_mount }}"
+    src: "{{ where_to_mount }}"
+    fstype:   "{{ extention_type }}"
+    state: present 
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote.
+  shell: sudo -i blkid
+
+    

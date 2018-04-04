@@ -1,0 +1,15 @@
+---
+# vars file for disk
+#name of disk which created 
+name_of_disk: "/dev/sdc"
+# primary partition number 
+primary_partition_number: 3
+# extention type 
+extention_type: ext4
+# name of partition where you want to create partion
+name_of_partition:  /dev/sdc1
+# name of directory where attach
+name_of_directory: /disk2/
+# fs tab entery vars 
+path_to_mount: /disk2/
+where_to_mount: /dev/sdc1

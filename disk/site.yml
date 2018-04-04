@@ -1,0 +1,5 @@
+---
+- hosts: java
+  become: yes
+  roles: 
+    - "/etc/ansible/roles/disk/"
